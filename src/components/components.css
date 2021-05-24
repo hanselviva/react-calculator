@@ -21,7 +21,7 @@
 /* BUTTONS CSS */
 /* BUTTONS CSS */
 .buttons-wrapper {
-	height: 550px;
+	height: 375px;
 }
 
 table {
@@ -32,7 +32,17 @@ table {
 	border: 2px solid #005d6f;
 	border-spacing: 5px;
 }
-.button {
-	border: 2px solid #000a12;
+
+.memory-functions {
+	height: 10%;
+}
+
+table tr th {
+	width: 25%;
+	border: 1px solid #000a12;
 	border-radius: 5px;
+}
+
+.operator {
+	background-color: #29434e;
 }
