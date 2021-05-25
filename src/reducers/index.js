@@ -1,15 +1,18 @@
 import {
-	APPLY_NUMBER,
-	CLEAR_DISPLAY,
 	INPUT_DISPLAY,
+	CLEAR_DISPLAY,
+	//
 	CHANGE_OPERATION,
+	CALCULATE_TOTAL,
+	DISPLAY_TOTAL,
+	CLEAR_TOTAL,
 } from "../actions/index";
 
 export const initialState = {
 	display: 0,
+	operation: "+",
 	total: 0,
 	memory: 0,
-	operation: "+",
 };
 
 const displayValues = (initialValue, inputValue) => {
@@ -20,7 +23,7 @@ const displayValues = (initialValue, inputValue) => {
 	}
 };
 
-const calculateResult = (num1, num2, operation) => {
+const calculateTotal = (num1, num2, operation) => {
 	switch (operation) {
 		case "+":
 			return num1 + num2;
@@ -42,21 +45,33 @@ const reducer = (state, action) => {
 				...state,
 				display: displayValues(state.display, action.payload),
 			};
-		case CHANGE_OPERATION:
-			return {
-				...state,
-				operation: action.payload,
-			};
 		case CLEAR_DISPLAY:
 			return {
 				...state,
 				display: 0,
 			};
-		// case APPLY_NUMBER:
-		// 	return {
-		// 		...state,
-		// 		total: calculateResult(state.total, action.payload, state.operation),
-		// 	};
+		//
+		//
+		case CHANGE_OPERATION:
+			return {
+				...state,
+				operation: action.payload,
+			};
+		case CALCULATE_TOTAL:
+			return {
+				...state,
+				total: calculateTotal(state.total, state.payload, state.operation),
+			};
+		case DISPLAY_TOTAL:
+			return {
+				...state,
+				display: state.total,
+			};
+		case CLEAR_TOTAL:
+			return {
+				...state,
+				total: 0,
+			};
 
 		default:
 			return state;

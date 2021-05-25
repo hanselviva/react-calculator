@@ -7,10 +7,12 @@ import Buttons from "./components/Buttons";
 import { useReducer } from "react";
 import reducer, { initialState } from "./reducers/index";
 import {
-	applyNumber,
-	clearDisplay,
 	inputDisplay,
+	clearDisplay,
 	changeOperation,
+	calculateTotal,
+	displayTotal,
+	clearTotal,
 } from "./actions/index";
 
 //
@@ -19,32 +21,35 @@ import {
 function App() {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
-	const handleClear = () => {
+	const dispatchInput = (e) => {
+		dispatch(inputDisplay(e.target.id));
+	};
+	const dispatchClearDisplay = () => {
 		dispatch(clearDisplay());
 	};
-
-	const handleOnClick = (e, number) => {
-		dispatch(inputDisplay(e.target.id));
-		// dispatch(applyNumber(number));
-	};
-
-	const handleResult = (e) => {
-		dispatch(applyNumber(e.target.id));
-		// console.log(applyNumber(e.target.id));
-	};
-
-	const handleOperation = (operator) => {
+	const dispatchOperation = (operator) => {
 		dispatch(changeOperation(operator));
+	};
+	const dispatchCalculateTotal = (value) => {
+		dispatch(calculateTotal(value));
+	};
+	const dispatchDisplayTotal = () => {
+		dispatch(displayTotal);
+	};
+	const dispatchClearTotal = () => {
+		dispatch(clearTotal());
 	};
 
 	return (
 		<div className="App">
 			<TotalDisplay display={state.display} />
 			<Buttons
-				handleClear={handleClear}
-				handleOnClick={handleOnClick}
-				handleResult={handleResult}
-				changeOperation={handleOperation}
+				handleInput={dispatchInput}
+				handleClearDisplay={dispatchClearDisplay}
+				handleOperation={dispatchOperation}
+				handleCalculate={dispatchCalculateTotal}
+				handleDisplayTotal={dispatchDisplayTotal}
+				handleClearTotal={dispatchClearTotal}
 			/>
 		</div>
 	);

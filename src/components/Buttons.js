@@ -1,13 +1,14 @@
 import "./components.css";
 
 const Buttons = (props) => {
-	const { handleClear, handleOnClick, handleResult, changeOperation } = props;
-
-	const handleOperator = (operator) => {
-		handleClear();
-		changeOperation(operator);
-	};
-
+	const {
+		handleInput,
+		handleClearDisplay,
+		handleOperation,
+		handleCalculate,
+		handleDisplayTotal,
+		handleClearTotal,
+	} = props;
 	return (
 		<div className="buttons-wrapper">
 			<table>
@@ -16,75 +17,50 @@ const Buttons = (props) => {
 						<th>M+</th>
 						<th>MR</th>
 						<th>MC</th>
-						<th onClick={handleClear}>CE</th>
+						<th>CE</th>
 					</tr>
 					<tr>
 						<th
 							id="7"
 							onClick={(e) => {
-								handleOnClick(e, 7);
+								handleInput(e);
 							}}
 						>
 							7
 						</th>
-						<th onClick={handleOnClick} id="8">
-							8
-						</th>
-						<th onClick={handleOnClick} id="9">
-							9
-						</th>
+						<th id="8">8</th>
+						<th id="9">9</th>
 						<th
 							className="operator"
 							onClick={() => {
-								handleOperator("*");
+								handleOperation("*");
 							}}
 						>
 							x
 						</th>
 					</tr>
 					<tr>
-						<th onClick={handleOnClick} id="4">
-							4
-						</th>
-						<th onClick={handleOnClick} id="5">
-							5
-						</th>
-						<th onClick={handleOnClick} id="6">
-							6
-						</th>
-						<th className="operator" id="-" onClick={handleOperator}>
+						<th id="4">4</th>
+						<th id="5">5</th>
+						<th id="6">6</th>
+						<th className="operator" id="-">
 							-
 						</th>
 					</tr>
 					<tr>
-						<th onClick={handleOnClick} id="7">
-							1
-						</th>
-						<th onClick={handleOnClick} id="8">
-							2
-						</th>
-						<th onClick={handleOnClick} id="9">
-							3
-						</th>
-						<th
-							rowSpan="2"
-							className="operator"
-							id="+"
-							onClick={handleOperator}
-						>
+						<th id="7">1</th>
+						<th id="8">2</th>
+						<th id="9">3</th>
+						<th rowSpan="2" className="operator" id="+">
 							+
 						</th>
 					</tr>
 					<tr>
-						<th onClick={handleOnClick} id="0">
-							0
-						</th>
-						<th className="operator" id="÷" onClick={handleOperator}>
+						<th id="0">0</th>
+						<th className="operator" id="÷">
 							÷
 						</th>
-						<th className="operator" onClick={handleResult}>
-							=
-						</th>
+						<th className="operator">=</th>
 					</tr>
 				</tbody>
 			</table>
