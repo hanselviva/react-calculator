@@ -48,6 +48,8 @@ function App() {
 		<div className="App">
 			<TotalDisplay
 				display={state.display}
+				operation={state.operation}
+				initialTotal={state.initialTotal}
 				total={state.total}
 				totalReveal={state.totalReveal}
 			/>

@@ -16,10 +16,10 @@ const Buttons = (props) => {
 			<table>
 				<tbody>
 					<tr className="memory-functions">
-						<th>M+</th>
-						<th>MR</th>
-						<th>MC</th>
-						<th>CE</th>
+						{/* <th>M+</th>
+						<th>MR</th> */}
+						<th colSpan="2">MC</th>
+						<th colSpan="2">CE</th>
 					</tr>
 					<tr>
 						<th

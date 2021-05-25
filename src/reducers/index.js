@@ -26,11 +26,11 @@ const displayValues = (initialValue, inputValue) => {
 	}
 };
 // num1 = display | num2 = initialTotal | num3 =
-const calculateTotal = (display, initialTotal, total, operation) => {
-	if (total === 0) {
+const calculateTotal = (display, initialTotal, total, memory, operation) => {
+	if (total === 0 && memory === 0) {
 		switch (operation) {
 			case "+":
-				return display + initialTotal;
+				return +display + +initialTotal;
 			case "*":
 				return display * initialTotal;
 			case "-":
@@ -44,7 +44,7 @@ const calculateTotal = (display, initialTotal, total, operation) => {
 	} else {
 		switch (operation) {
 			case "+":
-				return +total + +initialTotal;
+				return +total + +display;
 			case "*":
 				return total * initialTotal;
 			case "-":
@@ -56,22 +56,6 @@ const calculateTotal = (display, initialTotal, total, operation) => {
 		}
 	}
 };
-
-// const calculateTotal = (num1, num2, operation) => {
-// 	switch (operation) {
-// 		case "+":
-// 			return num1 + num2;
-// 		case "*":
-// 			return num1 * num2;
-// 		case "-":
-// 			return num1 * num2;
-// 		case "/":
-// 			return num1 / num2;
-
-// 		default:
-// 		// 	do nothing;
-// 	}
-// };
 
 const reducer = (state, action) => {
 	switch (action.type) {
@@ -93,6 +77,7 @@ const reducer = (state, action) => {
 				...state,
 				operation: action.payload,
 				totalReveal: false,
+
 				initialTotal: state.display,
 			};
 		case INITIAL_TOTAL:
@@ -108,8 +93,10 @@ const reducer = (state, action) => {
 					state.display,
 					state.initialTotal,
 					state.total,
+					state.memory,
 					state.operation,
 				),
+				memory: state.total,
 			};
 		case DISPLAY_TOTAL:
 			return {

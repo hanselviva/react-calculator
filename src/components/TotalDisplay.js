@@ -2,15 +2,17 @@ import React from "react";
 import "./components.css";
 
 const Operation = (props) => {
+	const { display, operation, total } = props;
 	return (
 		<div className="operation">
-			<div>Memory:</div>
+			<div>Memory: {total} </div>
+			<div>Operation: {operation} </div>
 		</div>
 	);
 };
 
 const TotalDisplay = (props) => {
-	const { display, total, totalReveal } = props;
+	const { display, operation, initialTotal, total, totalReveal } = props;
 
 	return (
 		<div>
@@ -19,7 +21,13 @@ const TotalDisplay = (props) => {
 			) : (
 				<div className="initial-total-display">{display}</div>
 			)}
-			<Operation />
+			<Operation
+				display={display}
+				operation={operation}
+				initialTotal={initialTotal}
+				total={total}
+				totalReveal={totalReveal}
+			/>
 		</div>
 	);
 };
