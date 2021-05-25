@@ -1,1 +1,1 @@
-Simple React Calculator || Hansel Valentine
+Simple React Calculator using reducers || https://reducer-calculator.netlify.app/
