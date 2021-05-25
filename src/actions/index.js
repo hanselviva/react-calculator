@@ -8,6 +8,7 @@ export const applyNumber = (number) => {
 };
 
 export const changeOperation = (operator) => {
+	console.log("test");
 	return { type: CHANGE_OPERATION, payload: operator };
 };
 

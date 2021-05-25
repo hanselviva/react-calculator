@@ -33,6 +33,10 @@ function App() {
 		// console.log(applyNumber(e.target.id));
 	};
 
+	const handleOperation = (operator) => {
+		dispatch(changeOperation(operator));
+	};
+
 	return (
 		<div className="App">
 			<TotalDisplay display={state.display} />
@@ -40,7 +44,7 @@ function App() {
 				handleClear={handleClear}
 				handleOnClick={handleOnClick}
 				handleResult={handleResult}
-				changeOperation={changeOperation}
+				changeOperation={handleOperation}
 			/>
 		</div>
 	);

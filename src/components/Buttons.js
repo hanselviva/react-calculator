@@ -5,7 +5,7 @@ const Buttons = (props) => {
 
 	const handleOperator = (operator) => {
 		handleClear();
-		// changeOperation(operator);
+		changeOperation(operator);
 	};
 
 	return (
@@ -36,8 +36,7 @@ const Buttons = (props) => {
 						<th
 							className="operator"
 							onClick={() => {
-								changeOperation("*");
-								console.log("test");
+								handleOperator("*");
 							}}
 						>
 							x
