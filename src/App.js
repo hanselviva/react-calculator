@@ -59,6 +59,7 @@ function App() {
 				handleDisplayTotal={dispatchDisplayTotal}
 				handleClearTotal={dispatchClearTotal}
 				handleInitialTotal={dispatchInitialTotal}
+				display={state.display}
 			/>
 		</div>
 	);

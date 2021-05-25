@@ -9,6 +9,7 @@ const Buttons = (props) => {
 		handleCalculate,
 		handleDisplayTotal,
 		handleClearTotal,
+		display,
 	} = props;
 	return (
 		<div className="buttons-wrapper">
@@ -29,8 +30,22 @@ const Buttons = (props) => {
 						>
 							7
 						</th>
-						<th id="8">8</th>
-						<th id="9">9</th>
+						<th
+							id="8"
+							onClick={(e) => {
+								handleInput(e);
+							}}
+						>
+							8
+						</th>
+						<th
+							id="9"
+							onClick={(e) => {
+								handleInput(e);
+							}}
+						>
+							9
+						</th>
 						<th
 							className="operator"
 							onClick={() => {
@@ -43,24 +58,98 @@ const Buttons = (props) => {
 						</th>
 					</tr>
 					<tr>
-						<th id="4">4</th>
-						<th id="5">5</th>
-						<th id="6">6</th>
-						<th className="operator" id="-">
+						<th
+							id="4"
+							onClick={(e) => {
+								handleInput(e);
+							}}
+						>
+							4
+						</th>
+						<th
+							id="5"
+							onClick={(e) => {
+								handleInput(e);
+							}}
+						>
+							5
+						</th>
+						<th
+							id="6"
+							onClick={(e) => {
+								handleInput(e);
+							}}
+						>
+							6
+						</th>
+						<th
+							className="operator"
+							id="-"
+							onClick={() => {
+								handleOperation("-");
+								handleInitialTotal();
+								handleClearDisplay();
+							}}
+						>
 							-
 						</th>
 					</tr>
 					<tr>
-						<th id="7">1</th>
-						<th id="8">2</th>
-						<th id="9">3</th>
-						<th rowSpan="2" className="operator" id="+">
+						<th
+							id="1"
+							onClick={(e) => {
+								handleInput(e);
+							}}
+						>
+							1
+						</th>
+						<th
+							id="2"
+							onClick={(e) => {
+								handleInput(e);
+							}}
+						>
+							2
+						</th>
+						<th
+							id="3"
+							onClick={(e) => {
+								handleInput(e);
+							}}
+						>
+							3
+						</th>
+						<th
+							rowSpan="2"
+							className="operator"
+							id="+"
+							onClick={() => {
+								handleOperation("+");
+								handleInitialTotal();
+								handleClearDisplay();
+							}}
+						>
 							+
 						</th>
 					</tr>
 					<tr>
-						<th id="0">0</th>
-						<th className="operator" id="÷">
+						<th
+							id="0"
+							onClick={(e) => {
+								handleInput(e);
+							}}
+						>
+							0
+						</th>
+						<th
+							className="operator"
+							id="÷"
+							onClick={() => {
+								handleOperation("/");
+								handleInitialTotal();
+								handleClearDisplay();
+							}}
+						>
 							÷
 						</th>
 						<th

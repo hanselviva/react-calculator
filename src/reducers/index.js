@@ -25,21 +25,53 @@ const displayValues = (initialValue, inputValue) => {
 		return initialValue + inputValue;
 	}
 };
+// num1 = display | num2 = initialTotal | num3 =
+const calculateTotal = (display, initialTotal, total, operation) => {
+	if (total === 0) {
+		switch (operation) {
+			case "+":
+				return display + initialTotal;
+			case "*":
+				return display * initialTotal;
+			case "-":
+				return initialTotal - display;
+			case "/":
+				return initialTotal / display;
 
-const calculateTotal = (num1, num2, operation) => {
-	switch (operation) {
-		case "+":
-			return num1 + num2;
-		case "*":
-			return num1 * num2;
-		case "-":
-			return num1 * num2;
-		case "/":
-			return num1 / num2;
-		default:
-		// 	do nothing;
+			default:
+			// 	do nothing;
+		}
+	} else {
+		switch (operation) {
+			case "+":
+				return +total + +initialTotal;
+			case "*":
+				return total * initialTotal;
+			case "-":
+				return total - display;
+			case "/":
+				return total / display;
+
+			default:
+		}
 	}
 };
+
+// const calculateTotal = (num1, num2, operation) => {
+// 	switch (operation) {
+// 		case "+":
+// 			return num1 + num2;
+// 		case "*":
+// 			return num1 * num2;
+// 		case "-":
+// 			return num1 * num2;
+// 		case "/":
+// 			return num1 / num2;
+
+// 		default:
+// 		// 	do nothing;
+// 	}
+// };
 
 const reducer = (state, action) => {
 	switch (action.type) {
@@ -60,25 +92,24 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				operation: action.payload,
-				initialTotal: state.display,
 				totalReveal: false,
+				initialTotal: state.display,
 			};
 		case INITIAL_TOTAL:
 			return {
 				...state,
 				initialTotal: state.display,
-				total: calculateTotal(
-					state.initialTotal,
-					state.display,
-					state.operation,
-				),
 			};
 		case CALCULATE_TOTAL:
 			return {
 				...state,
-				total: calculateTotal(state.total, state.display, state.operation),
-
 				totalReveal: true,
+				total: calculateTotal(
+					state.display,
+					state.initialTotal,
+					state.total,
+					state.operation,
+				),
 			};
 		case DISPLAY_TOTAL:
 			return {

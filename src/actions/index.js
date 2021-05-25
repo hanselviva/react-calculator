@@ -21,8 +21,8 @@ export const changeOperation = (operator) => {
 export const initialTotal = () => {
 	return { type: INITIAL_TOTAL };
 };
-export const calculateTotal = () => {
-	return { type: CALCULATE_TOTAL };
+export const calculateTotal = (secondNumber) => {
+	return { type: CALCULATE_TOTAL, payload: secondNumber };
 };
 export const displayTotal = () => {
 	return { type: DISPLAY_TOTAL };
