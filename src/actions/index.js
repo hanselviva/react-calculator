@@ -1,5 +1,6 @@
 export const APPLY_NUMBER = "APPLY_NUMBER";
 export const CLEAR_DISPLAY = "CLEAR_DISPLAY";
+export const INPUT_NUMBERS = "INPUT_NUMBERS";
 
 export const applyNumber = (number) => {
 	return { type: APPLY_NUMBER, payload: number };
@@ -7,4 +8,8 @@ export const applyNumber = (number) => {
 
 export const clearDisplay = () => {
 	return { type: CLEAR_DISPLAY };
+};
+
+export const inputNumbers = (numbers) => {
+	return { type: INPUT_NUMBERS, payload: numbers };
 };

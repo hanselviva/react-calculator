@@ -1,19 +1,21 @@
 import React from "react";
 import "./components.css";
 
-const Operation = () => {
+const Operation = (props) => {
 	return (
 		<div className="operation">
-			<div>Operation:</div>
 			<div>Memory:</div>
+			{/* <div>Operation:</div> */}
 		</div>
 	);
 };
 
-const TotalDisplay = () => {
+const TotalDisplay = (props) => {
+	const { value } = props;
+
 	return (
 		<div>
-			<div className="total-display"> 0 </div>
+			<div className="total-display"> {value} </div>
 			<Operation />
 		</div>
 	);

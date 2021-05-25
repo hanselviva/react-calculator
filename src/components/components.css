@@ -17,6 +17,10 @@
 	align-items: center;
 	padding: 5px 20px;
 }
+.operation div {
+	width: 50%;
+	text-align: left;
+}
 
 /* BUTTONS CSS */
 /* BUTTONS CSS */

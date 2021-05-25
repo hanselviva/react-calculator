@@ -1,6 +1,7 @@
-import { APPLY_NUMBER, CLEAR_DISPLAY } from "../actions/index";
+import { APPLY_NUMBER, CLEAR_DISPLAY, INPUT_NUMBERS } from "../actions/index";
 
 export const initialState = {
+	input: 0,
 	total: 0,
 	operation: "+",
 	memory: 0,
@@ -23,6 +24,11 @@ const calculateResult = (num1, num2, operation) => {
 
 const reducer = (state, action) => {
 	switch (action.type) {
+		case INPUT_NUMBERS:
+			return {
+				...state,
+				input: state.input + action.payload,
+			};
 		case APPLY_NUMBER:
 			return {
 				...state,
