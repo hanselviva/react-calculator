@@ -1,4 +1,3 @@
-import React from "react";
 import "./components.css";
 
 const Buttons = () => {
@@ -33,7 +32,7 @@ const Buttons = () => {
 				</tr>
 				<tr>
 					<th>0</th>
-					<th className="operator">/</th>
+					<th className="operator">÷</th>
 					<th className="operator">=</th>
 				</tr>
 			</table>
