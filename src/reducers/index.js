@@ -3,7 +3,7 @@ import {
 	CLEAR_DISPLAY,
 	//
 	CHANGE_OPERATION,
-	SET_INITIAL_TOTAL,
+	INITIAL_TOTAL,
 	CALCULATE_TOTAL,
 	DISPLAY_TOTAL,
 	CLEAR_TOTAL,
@@ -12,8 +12,10 @@ import {
 export const initialState = {
 	display: 0,
 	operation: "+",
+	initialTotal: 0,
 	total: 0,
 	memory: 0,
+	totalReveal: false,
 };
 
 const displayValues = (initialValue, inputValue) => {
@@ -45,6 +47,7 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				display: displayValues(state.display, action.payload),
+				totalReveal: false,
 			};
 		case CLEAR_DISPLAY:
 			return {
@@ -57,21 +60,32 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				operation: action.payload,
+				totalReveal: false,
 			};
-		case SET_INITIAL_TOTAL:
+		case INITIAL_TOTAL:
 			return {
 				...state,
-				total: state.display,
+				initialTotal: state.display,
 			};
 		case CALCULATE_TOTAL:
 			return {
 				...state,
-				total: calculateTotal(state.total, state.payload, state.operation),
+				total: calculateTotal(
+					state.initialTotal,
+					state.display,
+					state.operation,
+				),
+				initialTotal: calculateTotal(
+					state.initialTotal,
+					state.display,
+					state.operation,
+				),
+				totalReveal: true,
 			};
 		case DISPLAY_TOTAL:
 			return {
 				...state,
-				display: state.total,
+				totalReveal: true,
 			};
 		case CLEAR_TOTAL:
 			return {

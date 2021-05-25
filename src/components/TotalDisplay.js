@@ -10,11 +10,15 @@ const Operation = (props) => {
 };
 
 const TotalDisplay = (props) => {
-	const { display } = props;
+	const { display, total, totalReveal } = props;
 
 	return (
 		<div>
-			<div className="total-display">{display}</div>
+			{totalReveal === true ? (
+				<div className="grand-total-display">{total} </div>
+			) : (
+				<div className="initial-total-display">{display}</div>
+			)}
 			<Operation />
 		</div>
 	);

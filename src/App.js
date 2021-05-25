@@ -10,7 +10,7 @@ import {
 	inputDisplay,
 	clearDisplay,
 	changeOperation,
-	setInitialTotal,
+	initialTotal,
 	calculateTotal,
 	displayTotal,
 	clearTotal,
@@ -32,7 +32,7 @@ function App() {
 		dispatch(changeOperation(operator));
 	};
 	const dispatchInitialTotal = () => {
-		dispatch(setInitialTotal());
+		dispatch(initialTotal());
 	};
 	const dispatchCalculateTotal = (value) => {
 		dispatch(calculateTotal(value));
@@ -46,7 +46,11 @@ function App() {
 
 	return (
 		<div className="App">
-			<TotalDisplay display={state.display} />
+			<TotalDisplay
+				display={state.display}
+				total={state.total}
+				totalReveal={state.totalReveal}
+			/>
 			<Buttons
 				handleInput={dispatchInput}
 				handleClearDisplay={dispatchClearDisplay}

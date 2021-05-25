@@ -25,7 +25,6 @@ const Buttons = (props) => {
 							id="7"
 							onClick={(e) => {
 								handleInput(e);
-								handleInitialTotal();
 							}}
 						>
 							7
@@ -36,6 +35,7 @@ const Buttons = (props) => {
 							className="operator"
 							onClick={() => {
 								handleOperation("*");
+								handleInitialTotal();
 								handleClearDisplay();
 							}}
 						>
@@ -63,7 +63,15 @@ const Buttons = (props) => {
 						<th className="operator" id="÷">
 							÷
 						</th>
-						<th className="operator">=</th>
+						<th
+							className="operator"
+							onClick={() => {
+								handleCalculate();
+								handleDisplayTotal();
+							}}
+						>
+							=
+						</th>
 					</tr>
 				</tbody>
 			</table>
