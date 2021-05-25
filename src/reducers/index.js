@@ -60,26 +60,24 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				operation: action.payload,
+				initialTotal: state.display,
 				totalReveal: false,
 			};
 		case INITIAL_TOTAL:
 			return {
 				...state,
 				initialTotal: state.display,
-			};
-		case CALCULATE_TOTAL:
-			return {
-				...state,
 				total: calculateTotal(
 					state.initialTotal,
 					state.display,
 					state.operation,
 				),
-				initialTotal: calculateTotal(
-					state.initialTotal,
-					state.display,
-					state.operation,
-				),
+			};
+		case CALCULATE_TOTAL:
+			return {
+				...state,
+				total: calculateTotal(state.total, state.display, state.operation),
+
 				totalReveal: true,
 			};
 		case DISPLAY_TOTAL:
