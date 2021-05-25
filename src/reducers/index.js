@@ -7,6 +7,7 @@ import {
 	CALCULATE_TOTAL,
 	DISPLAY_TOTAL,
 	CLEAR_TOTAL,
+	CLEAR_MEMORY,
 } from "../actions/index";
 
 export const initialState = {
@@ -69,6 +70,7 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				display: 0,
+				totalReveal: false,
 			};
 		//
 		//
@@ -109,6 +111,11 @@ const reducer = (state, action) => {
 				total: 0,
 			};
 
+		case CLEAR_MEMORY:
+			return {
+				...state,
+				memory: 0,
+			};
 		default:
 			return state;
 	}

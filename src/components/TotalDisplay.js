@@ -2,11 +2,11 @@ import React from "react";
 import "./components.css";
 
 const Operation = (props) => {
-	const { display, operation, total } = props;
+	const { operation, total } = props;
 	return (
-		<div className="operation">
+		<div className="operation-wrapper">
 			<div>Memory: {total} </div>
-			<div>Operation: {operation} </div>
+			<div className="operation-display">Operation: {operation} </div>
 		</div>
 	);
 };

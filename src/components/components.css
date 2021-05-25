@@ -13,7 +13,7 @@
 	justify-content: center;
 }
 
-.operation {
+.operation-wrapper {
 	background-color: black;
 	color: blanchedalmond;
 	display: flex;
@@ -26,6 +26,10 @@
 	color: white;
 	width: 50%;
 	text-align: left;
+}
+
+.operation-display {
+	text-align: right;
 }
 
 /* BUTTONS CSS */

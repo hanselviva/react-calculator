@@ -14,6 +14,7 @@ import {
 	calculateTotal,
 	displayTotal,
 	clearTotal,
+	clearMemory,
 } from "./actions/index";
 
 //
@@ -43,6 +44,9 @@ function App() {
 	const dispatchClearTotal = () => {
 		dispatch(clearTotal());
 	};
+	const dispatchClearMemory = () => {
+		dispatch(clearMemory());
+	};
 
 	return (
 		<div className="App">
@@ -61,7 +65,7 @@ function App() {
 				handleDisplayTotal={dispatchDisplayTotal}
 				handleClearTotal={dispatchClearTotal}
 				handleInitialTotal={dispatchInitialTotal}
-				display={state.display}
+				handleClearMemory={dispatchClearMemory}
 			/>
 		</div>
 	);

@@ -9,7 +9,7 @@ const Buttons = (props) => {
 		handleCalculate,
 		handleDisplayTotal,
 		handleClearTotal,
-		display,
+		handleClearMemory,
 	} = props;
 	return (
 		<div className="buttons-wrapper">
@@ -18,8 +18,23 @@ const Buttons = (props) => {
 					<tr className="memory-functions">
 						{/* <th>M+</th>
 						<th>MR</th> */}
-						<th colSpan="2">MC</th>
-						<th colSpan="2">CE</th>
+						<th
+							colSpan="2"
+							onClick={() => {
+								handleClearTotal();
+								handleClearMemory();
+							}}
+						>
+							MC
+						</th>
+						<th
+							colSpan="2"
+							onClick={() => {
+								handleClearDisplay();
+							}}
+						>
+							CE
+						</th>
 					</tr>
 					<tr>
 						<th

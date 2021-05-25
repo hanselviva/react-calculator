@@ -6,6 +6,7 @@ export const INITIAL_TOTAL = "INITIAL TOTAL";
 export const CALCULATE_TOTAL = "CALCULATE_TOTAL";
 export const DISPLAY_TOTAL = "DISPLAY_TOTAL";
 export const CLEAR_TOTAL = "CLEAR_TOTAL";
+export const CLEAR_MEMORY = "CLEAR_MEMORY";
 //
 export const inputDisplay = (values) => {
 	return { type: INPUT_DISPLAY, payload: values };
@@ -29,4 +30,7 @@ export const displayTotal = () => {
 };
 export const clearTotal = (number) => {
 	return { type: CLEAR_TOTAL, payload: number };
+};
+export const clearMemory = () => {
+	return { type: CLEAR_MEMORY };
 };
