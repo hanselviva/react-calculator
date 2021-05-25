@@ -113,8 +113,12 @@ const reducer = (state, action) => {
 
 		case CLEAR_MEMORY:
 			return {
-				...state,
+				display: 0,
+				operation: "+",
+				initialTotal: 0,
+				total: 0,
 				memory: 0,
+				totalReveal: false,
 			};
 		default:
 			return state;
