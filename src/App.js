@@ -6,7 +6,12 @@ import Buttons from "./components/Buttons";
 //
 import { useReducer } from "react";
 import reducer, { initialState } from "./reducers/index";
-import { applyNumber, clearDisplay, inputNumbers } from "./actions/index";
+import {
+	applyNumber,
+	clearDisplay,
+	inputDisplay,
+	changeOperation,
+} from "./actions/index";
 
 //
 //
@@ -18,21 +23,24 @@ function App() {
 		dispatch(clearDisplay());
 	};
 
-	const handleOnClick = (e) => {
-		dispatch(inputNumbers(e.target.value));
+	const handleOnClick = (e, number) => {
+		dispatch(inputDisplay(e.target.id));
+		// dispatch(applyNumber(number));
 	};
 
-	const handleResult = (number) => {
-		dispatch(applyNumber(number));
+	const handleResult = (e) => {
+		dispatch(applyNumber(e.target.id));
+		// console.log(applyNumber(e.target.id));
 	};
 
 	return (
 		<div className="App">
-			<TotalDisplay value={state.input} />
+			<TotalDisplay display={state.display} />
 			<Buttons
 				handleClear={handleClear}
 				handleOnClick={handleOnClick}
 				handleResult={handleResult}
+				changeOperation={changeOperation}
 			/>
 		</div>
 	);

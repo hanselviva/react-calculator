@@ -5,17 +5,16 @@ const Operation = (props) => {
 	return (
 		<div className="operation">
 			<div>Memory:</div>
-			{/* <div>Operation:</div> */}
 		</div>
 	);
 };
 
 const TotalDisplay = (props) => {
-	const { value } = props;
+	const { display } = props;
 
 	return (
 		<div>
-			<div className="total-display"> {value} </div>
+			<div className="total-display">{display}</div>
 			<Operation />
 		</div>
 	);

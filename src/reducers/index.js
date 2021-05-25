@@ -1,10 +1,23 @@
-import { APPLY_NUMBER, CLEAR_DISPLAY, INPUT_NUMBERS } from "../actions/index";
+import {
+	APPLY_NUMBER,
+	CLEAR_DISPLAY,
+	INPUT_DISPLAY,
+	CHANGE_OPERATION,
+} from "../actions/index";
 
 export const initialState = {
-	input: 0,
+	display: 0,
 	total: 0,
-	operation: "+",
 	memory: 0,
+	operation: "+",
+};
+
+const displayValues = (initialValue, inputValue) => {
+	if (initialValue === 0) {
+		return inputValue;
+	} else {
+		return initialValue + inputValue;
+	}
 };
 
 const calculateResult = (num1, num2, operation) => {
@@ -18,27 +31,32 @@ const calculateResult = (num1, num2, operation) => {
 		case "/":
 			return num1 / num2;
 		default:
-			return null;
+		// 	do nothing;
 	}
 };
 
 const reducer = (state, action) => {
 	switch (action.type) {
-		case INPUT_NUMBERS:
+		case INPUT_DISPLAY:
 			return {
 				...state,
-				input: state.input + action.payload,
+				display: displayValues(state.display, action.payload),
 			};
-		case APPLY_NUMBER:
+		case CHANGE_OPERATION:
 			return {
 				...state,
-				total: calculateResult(state.total, action.payload, state.operation),
+				operation: action.payload,
 			};
 		case CLEAR_DISPLAY:
 			return {
 				...state,
-				total: 0,
+				display: 0,
 			};
+		// case APPLY_NUMBER:
+		// 	return {
+		// 		...state,
+		// 		total: calculateResult(state.total, action.payload, state.operation),
+		// 	};
 
 		default:
 			return state;
