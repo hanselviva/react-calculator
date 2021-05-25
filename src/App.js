@@ -10,6 +10,7 @@ import {
 	inputDisplay,
 	clearDisplay,
 	changeOperation,
+	setInitialTotal,
 	calculateTotal,
 	displayTotal,
 	clearTotal,
@@ -29,6 +30,9 @@ function App() {
 	};
 	const dispatchOperation = (operator) => {
 		dispatch(changeOperation(operator));
+	};
+	const dispatchInitialTotal = () => {
+		dispatch(setInitialTotal());
 	};
 	const dispatchCalculateTotal = (value) => {
 		dispatch(calculateTotal(value));
@@ -50,6 +54,7 @@ function App() {
 				handleCalculate={dispatchCalculateTotal}
 				handleDisplayTotal={dispatchDisplayTotal}
 				handleClearTotal={dispatchClearTotal}
+				handleInitialTotal={dispatchInitialTotal}
 			/>
 		</div>
 	);

@@ -5,6 +5,7 @@ const Buttons = (props) => {
 		handleInput,
 		handleClearDisplay,
 		handleOperation,
+		handleInitialTotal,
 		handleCalculate,
 		handleDisplayTotal,
 		handleClearTotal,
@@ -24,6 +25,7 @@ const Buttons = (props) => {
 							id="7"
 							onClick={(e) => {
 								handleInput(e);
+								handleInitialTotal();
 							}}
 						>
 							7
@@ -34,6 +36,7 @@ const Buttons = (props) => {
 							className="operator"
 							onClick={() => {
 								handleOperation("*");
+								handleClearDisplay();
 							}}
 						>
 							x

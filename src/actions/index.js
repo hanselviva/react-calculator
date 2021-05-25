@@ -2,6 +2,7 @@ export const INPUT_DISPLAY = "INPUT_DISPLAY";
 export const CLEAR_DISPLAY = "CLEAR_DISPLAY";
 //
 export const CHANGE_OPERATION = "CHANGE_OPERATION";
+export const SET_INITIAL_TOTAL = "SET_INITIAL_TOTAL";
 export const CALCULATE_TOTAL = "CALCULATE_TOTAL";
 export const DISPLAY_TOTAL = "DISPLAY_TOTAL";
 export const CLEAR_TOTAL = "CLEAR_TOTAL";
@@ -16,6 +17,9 @@ export const clearDisplay = () => {
 //
 export const changeOperation = (operator) => {
 	return { type: CHANGE_OPERATION, payload: operator };
+};
+export const setInitialTotal = () => {
+	return { type: SET_INITIAL_TOTAL };
 };
 export const calculateTotal = (number) => {
 	return { type: CALCULATE_TOTAL, payload: number };

@@ -3,6 +3,7 @@ import {
 	CLEAR_DISPLAY,
 	//
 	CHANGE_OPERATION,
+	SET_INITIAL_TOTAL,
 	CALCULATE_TOTAL,
 	DISPLAY_TOTAL,
 	CLEAR_TOTAL,
@@ -56,6 +57,11 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				operation: action.payload,
+			};
+		case SET_INITIAL_TOTAL:
+			return {
+				...state,
+				total: state.display,
 			};
 		case CALCULATE_TOTAL:
 			return {
